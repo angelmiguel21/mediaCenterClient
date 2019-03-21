@@ -28,7 +28,7 @@ router.get('/signup', isAuth, (req, res, next) => {
   })
 });
 
-router.post('/signup', isAuth, passport.authenticate('local.signup', {
+router.post('/signup', passport.authenticate('local.signup', {
   successRedirect: '/users/signin',
   failureRedirect: '/signup',
   passReqToCallback: true

@@ -19,6 +19,7 @@ async function saveMovie( req, res, next ) {
   movie.name = req.body.name;
   movie.url = req.body.url;
   movie.thumbnail = req.body.thumbnail;
+  movie.user = req.body.user;
 
   movie.save((err, movieStored) => {
     if(err) res.status(500).send({

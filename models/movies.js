@@ -21,6 +21,10 @@ var movieSchema = new Schema({
     type: String,
     minlength: 8,
     maxlength: 1024,
+  },
+  user:{
+    type: Schema.Types.ObjectId,
+    ref: 'users'
   }
 });
 
