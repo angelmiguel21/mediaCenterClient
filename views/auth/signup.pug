@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet', href='plugins/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='css/login.css')
+  body
+    div.preloader
+      svg(class='circular', viewbox='25 25 50 50')
+        circle(class='path', cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10")
+    div(class='main-wrapper', style='background: url("img/bg_signup.jpg"); background-size: 1600px 900px; height: 100vh;')
+      div.unix-login
+        div.container-fluid
+          div.row
+            div(class='col-lg-4 offset-lg-6')
+              div(class='login-content', style='margin-top:120px')
+                div.login-form
+                  h4 Registrate
+                  form(method='POST', action='/signup')
+                    div(class='form-group')
+                      label Nombre
+                      input(id='name', type='text', class='form-control', name='name', value='', required autofocus)
+                    div(class='form-group')
+                      label Correo Electrónico
+                      input(id='email', type='email', class='form-control', name='email', value='', required)
+                      if signupMessage
+                        div= signupMessage
+                    div(class='form-group')
+                      label Contraseña
+                      input(id='password', type='password', class='form-control', name='password' required)
+                    button(type='submit', class='btn btn-info btn-flat m-b-30 m-t-30') Login
+    // jquery
+    script(src='plugins/jquery/dist/jquery.js')
+    // bootstrap
+    script(src='plugins/popper.js/dist/popper.js')
+    script(src='plugins/bootstrap/dist/js/bootstrap.js')
+    // custom
+    script(src='js/custom.js')

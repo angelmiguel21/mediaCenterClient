@@ -1,8 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400,600,700,800');
+@import url(../plugins/font-awesome-4.7.0/css/font-awesome.css);
+@import url(../plugins/simple-line-icons/css/simple-line-icons.css);
+@import url(../plugins/weather-icons/css/weather-icons.min.css);
+@import url(../plugins/linea-icons/linea.css);
+@import url(../plugins/themify-icons/themify-icons.css);
+@import url(../plugins/flag-icon-css/css/flag-icon.min.css);
+@import url(../plugins/material-design-iconic-font/css/material-design-iconic-font.min.css);
+@import url(spinners.css);
+@import url(animate.css);
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #ebebeb;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  color: #67757c;
+  width: 100%;
 }
 
-a {
-  color: #00B7FF;
+html {
+  position: relative;
+  min-height: 100%;
+  background: #ffffff;
+}
+
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+
+a.link {
+  color: #455a64;
+}
+
+a.link:focus,
+a.link:hover {
+  color: #1976d2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #455a64;
+  font-weight: 400;
+}
+
+h1 {
+  line-height: 40px;
+  font-size: 36px;
+}
+
+h2 {
+  line-height: 36px;
+  font-size: 24px;
+}
+
+h3 {
+  line-height: 30px;
+  font-size: 21px;
+}
+
+h4 {
+  line-height: 22px;
+  font-size: 18px;
+}
+
+h5 {
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+h6 {
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+
+/* cards */
+
+.card {
+  box-shadow: none;
+}
+
+.card {
+  background: #ffffff none repeat scroll 0 0;
+  margin: 15px 0;
+  padding: 20px;
+  border: 0 solid #e7e7e7;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+.card-header {
+  background: #ffffff;
+}
+.card-header h5 {
+  margin: 0;
+}
+.card-header h5 a {
+  text-decoration: none;
+  color: #67757c;
+}
+.card-body {
+  padding: 0;
+}
+.card-subtitle {
+  font-size: 12px;
+  margin: 10px 0;
+}
+.card-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.card-title h4 {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.card-title p {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 12px;
+}
+.card-inverse .card-bodyquote .blockquote-footer {
+  color: rgba(255, 255, 255, 0.65);
+}
+.card-inverse .card-link {
+  color: rgba(255, 255, 255, 0.65);
+}
+.card-inverse .card-subtitle {
+  color: rgba(255, 255, 255, 0.65);
+}
+.card-inverse .card-text {
+  color: rgba(255, 255, 255, 0.65);
+}
+.card-success {
+  background: #26dad2 none repeat scroll 0 0;
+  border-color: #26dad2;
+}
+.card-danger {
+  background: #ef5350 none repeat scroll 0 0;
+  border-color: #ef5350;
+}
+.card-warning {
+  background: #ffb22b none repeat scroll 0 0;
+  border-color: #ffb22b;
+}
+.card-info {
+  background: #1976d2 none repeat scroll 0 0;
+  border-color: #1976d2;
+}
+.card-primary {
+  background: #5c4ac7 none repeat scroll 0 0;
+  border-color: #5c4ac7;
+}
+.card-dark {
+  background: #2f3d4a none repeat scroll 0 0;
+  border-color: #2f3d4a;
+}
+.card-megna {
+  background: #00897b none repeat scroll 0 0;
+  border-color: #00897b;
 }

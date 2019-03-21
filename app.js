@@ -1,13 +1,23 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const passport = require('passport');
+const session = require('express-session');
+const flash = require('connect-flash');
+const jwt = require('jsonwebtoken');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const keys = require('./keys')
 
-var app = express();
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const movieRouter = require('./routes/movies');
+const apiRouter = require('./routes/api');
+
+const app = express();
+require('./dbConnect');
+require('./passport/local-auth');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,9 +28,34 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'movies')));
+app.use(session({
+  secret: 'mysecretsession',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use((req, res, next) => {
+  app.locals.signupMessage = req.flash('signupMessage');
+  app.locals.signinMessage = req.flash('signinMessage');
+  res.locals.login = req.isAuthenticated();
+  next();
+});
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/movie', movieRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
