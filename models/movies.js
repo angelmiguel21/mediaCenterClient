@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
 const { Schema } = mongoose;
 
 var movieSchema = new Schema({
@@ -7,7 +6,7 @@ var movieSchema = new Schema({
     type: String,
     require: true,
     minlength: 3,
-    maxlength: 50,
+    maxlength: 50
   },
   url: {
     type: String,
@@ -20,11 +19,7 @@ var movieSchema = new Schema({
   thumbnail: {
     type: String,
     minlength: 8,
-    maxlength: 1024,
-  },
-  user:{
-    type: Schema.Types.ObjectId,
-    ref: 'users'
+    maxlength: 1024
   }
 });
 

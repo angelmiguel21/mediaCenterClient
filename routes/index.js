@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/dashboard', async (req, res, next) => {
+router.get('/home', async (req, res, next) => {
   const movies = await Movie.find({});
   console.log(movies);
   res.render('dashboard', {movies})

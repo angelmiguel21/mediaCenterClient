@@ -5,6 +5,7 @@ const moviesCtrl = require('../controllers/movies');
 
 router.get('/', moviesCtrl.getMovies);
 router.get('/:id', moviesCtrl.getMovie);
-router.post('/save', moviesCtrl.saveMovie);
+router.get('/new/save', moviesCtrl.getNewMovie);
+router.post('/new/save', moviesCtrl.postNewMovie);
 
 module.exports = router;

@@ -11,7 +11,11 @@ async function getMovie(req, res, next) {
   res.send(movie);
 };
 
-async function saveMovie( req, res, next ) {
+function getNewMovie(req, res, next) {
+  res.render('register',{message: 'Done'});
+};
+
+async function postNewMovie(req, res, next) {
   console.log(req.body);
 
   let movie = new Movie();
@@ -19,15 +23,14 @@ async function saveMovie( req, res, next ) {
   movie.name = req.body.name;
   movie.url = req.body.url;
   movie.thumbnail = req.body.thumbnail;
-  movie.user = req.body.user;
 
-  movie.save((err, movieStored) => {
+  await movie.save((err, movieStored) => {
     if(err) res.status(500).send({
       message: `error al guardar, ${err}`
     });
 
     res.status(200).send({
-      message: `Movie: ${movie}`
+      message: `Movie: ${movieStored}`
     });
 
   });
@@ -36,5 +39,6 @@ async function saveMovie( req, res, next ) {
 module.exports = {
   getMovies,
   getMovie,
-  saveMovie
+  getNewMovie,
+  postNewMovie
 }
