@@ -15,7 +15,7 @@ router.get('/signin', (req, res, next) => {
 });
 
 router.post('/signin', passport.authenticate('local-signin', {
-  successRedirect: '/dashboard',
+  successRedirect: '/movies',
   failureRedirect: '/users/signin',
   passReqToCallback: true
 }));

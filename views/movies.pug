@@ -1,0 +1,43 @@
+extends layouts/layout
+
+block content
+  div(class='container mt-3' style='min-height: 50em')
+    .wrap
+      div(class='border border-info rounded' id='form-border')
+        form(action='/api/movies', method="post")
+          .form-row
+            .col-2
+              h3 Reg Movie:
+            .col
+              input(type='text', class='form-control', Placeholder='Movie name', name='name')
+            .col
+              input(type='text', class='form-control', Placeholder='Movie Route', name='url')
+            .col
+              select(name='genre' class='form-control')
+                option(value='', disabled='disabled', selected='selected') Select genre
+                option(value='acción') Acción
+                option(value='animadas') Animadas
+                option(value='comedia') Comedia
+                option(value='drama') Drama
+                option(value='ficción') Ficción
+            .col
+              input(type='text', class='form-control', Placeholder='img Route', name='thumbnail')
+            .col-1
+              Button(type='submit' class='btn btn-danger btn-block', ) Reg
+
+      div(class='row rounded' , align='center' id='row-movies')
+          if !movies
+            div.col-sm-12
+              div(class='card text-center')
+                .card-body
+                  h5= message
+          else
+            each val in movies
+              div.col-sm-3
+                div(class='card border border-info', style='width: 16rem;')
+                  div(class='card-body', align='center')
+                      h5.card-title= val.name
+                  img(src=val.thumbnail, class='card-img-top', alt='...')
+                  div(class='card-body', align='center')
+                    a(href='api/movies/'+val._id, class='card-link') Ver
+                    a(href=val.url, class='card-link') Descargar

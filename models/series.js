@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const movieSchema = new Schema ({
+const serieSchema = new Schema ({
   name: {
     type: String,
     require: true,
     minlength: 3,
     maxlength: 50
-  },
+    },
   url: {
     type: String,
     unique: true,
@@ -36,4 +36,4 @@ const movieSchema = new Schema ({
   }
 });
 
-module.exports = mongoose.model('movies', movieSchema);
+module.exports = mongoose.model('series', serieSchema);
