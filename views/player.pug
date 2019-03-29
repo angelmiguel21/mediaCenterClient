@@ -1,0 +1,8 @@
+extends layouts/layout
+
+block content
+    div(class='container mt-5' style='min-height: 50em')
+      div(class='border border-info rounded' id='form-border')
+        h3(align='center')= movie.name
+        video(controls)
+          source(src='/'+movie.url, type='video/mp4')

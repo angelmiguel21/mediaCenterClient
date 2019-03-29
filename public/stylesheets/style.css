@@ -170,8 +170,12 @@ h6 {
 
 #form-border {
   padding: 10px;
+  margin-left: 10px;
   background-color: rgba(233, 237, 250, 0.5);
-  vertical-align: middle;  
+  vertical-align: middle;
+  width: 99%;
+  align-content: center;
+  border-color: #b8c6d2 !important;
 }
 
 #row-movies {
@@ -182,4 +186,10 @@ h6 {
 .nav {
   background-color: #585858;
   color: #fff;
+}
+
+video {
+  width: 100%;
+  max-width: 1500px;
+  height: auto;
 }

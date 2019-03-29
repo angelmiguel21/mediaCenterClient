@@ -26,6 +26,11 @@ const movieSchema = new Schema ({
     require: true,
     lowercase: true
   },
+  subs:{
+    type: String,
+    minlength: 5,
+    maxlength: 100
+  },
   created_at: {
     type: Date,
     default: Date.now

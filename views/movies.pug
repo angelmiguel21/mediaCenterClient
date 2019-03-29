@@ -1,30 +1,32 @@
 extends layouts/layout
 
 block content
+  div(class='border rounded  mt-2' id='form-border')
+    form(action='/api/movies', method="post")
+      .form-row
+        .col-2
+          h3 Reg Movie:
+        .col
+          input(type='text', class='form-control', Placeholder='Movie name', name='name')
+        .col
+          input(type='text', class='form-control', Placeholder='Movie Route', name='url')
+        .col
+          select(name='genre' class='form-control')
+            option(value='', disabled='disabled', selected='selected') Select genre
+            option(value='acción') Acción
+            option(value='animadas') Animadas
+            option(value='comedia') Comedia
+            option(value='drama') Drama
+            option(value='ficción') Ficción
+        .col
+          input(type='text', class='form-control', Placeholder='subs Route', name='subs')
+        .col
+          input(type='text', class='form-control', Placeholder='img Route', name='thumbnail')
+        .col-1
+          Button(type='submit' class='btn btn-danger btn-block', ) Reg
+
   div(class='container mt-3' style='min-height: 50em')
     .wrap
-      div(class='border border-info rounded' id='form-border')
-        form(action='/api/movies', method="post")
-          .form-row
-            .col-2
-              h3 Reg Movie:
-            .col
-              input(type='text', class='form-control', Placeholder='Movie name', name='name')
-            .col
-              input(type='text', class='form-control', Placeholder='Movie Route', name='url')
-            .col
-              select(name='genre' class='form-control')
-                option(value='', disabled='disabled', selected='selected') Select genre
-                option(value='acción') Acción
-                option(value='animadas') Animadas
-                option(value='comedia') Comedia
-                option(value='drama') Drama
-                option(value='ficción') Ficción
-            .col
-              input(type='text', class='form-control', Placeholder='img Route', name='thumbnail')
-            .col-1
-              Button(type='submit' class='btn btn-danger btn-block', ) Reg
-
       div(class='row rounded' , align='center' id='row-movies')
           if !movies
             div.col-sm-12

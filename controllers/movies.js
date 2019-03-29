@@ -8,7 +8,9 @@ async function getMovies(req, res, next) {
 
 async function getMovie(req, res, next) {
   const movie = await Movie.findById(req.params.id);
-  res.send(movie);
+  console.log(movie);
+  res.render('player', {movie})
+  //res.send(movie);
 };
 
 async function postNewMovie(req, res, next) {
