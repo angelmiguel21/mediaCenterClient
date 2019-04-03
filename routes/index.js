@@ -6,7 +6,8 @@ const Serie = require('../models/series');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'MediaCenter' });
+  //res.render('index', { title: 'MediaCenter' });
+  res.redirect('/movies')
 });
 
 router.get('/movies', async (req, res, next) => {
