@@ -3,6 +3,7 @@ const Movie = require('../models/movies');
 
 async function getMovies(req, res, next) {
   const movies = await Movie.find({});
+  console.log(movies)
   res.send(movies);
 };
 
@@ -20,8 +21,9 @@ async function postNewMovie(req, res, next) {
 
   movie.name = req.body.name;
   movie.url = req.body.url;
-  movie.thumbnail = req.body.thumbnail;
+  movie.thumbnail = req.body.thumbnail;  
   movie.genre = req.body.genre;
+  movie.subs = req.body.subs;
 
   await movie.save((err, movieStored) => {
     if(err) res.status(500).send({
