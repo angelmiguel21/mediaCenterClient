@@ -193,3 +193,11 @@ video {
   max-width: 1500px;
   height: auto;
 }
+
+.card-link{  
+  margin: 10px 10px 0px 10px;
+}
+
+.card-link>i {
+  vertical-align: middle;
+}

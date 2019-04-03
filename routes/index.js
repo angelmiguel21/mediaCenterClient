@@ -6,27 +6,31 @@ const Serie = require('../models/series');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'MediaCenter' });
 });
 
 router.get('/movies', async (req, res, next) => {
+  let title = "Movies"
   const movies = await Movie.find({}).sort([['created_at', -1]]);
   if (movies.length > 0 ){
-    res.render('movies', {movies})
+    res.render('movies', {movies, title})
   }
   else {
     res.render('movies', {
-      message: 'No Movies to show, reg a new Movie'
+      message: 'No Movies to show, reg a new Movie',
+      title
     })
   }
 });
 
 router.get('/home', function(req,res,next) {
-  res.render('dashboard', {message: 'dashboard'})
+  let title = "Dashboard";
+  res.render('dashboard', {message: 'dashboard', title})
 });
 
 router.get('/series', function(req,res,next) {
-  res.render('series', {message: 'Doit for the series'})
+  let title = "Series"
+  res.render('series', {message: 'Doit for the series', title})
 });
 
 /*validar authetication*/

@@ -40,6 +40,7 @@ block content
                   div(class='card-body', align='center')
                       h5.card-title= val.name
                   img(src=val.thumbnail, class='card-img-top', alt='...')
-                  div(class='card-body', align='center')
-                    a(href='api/movies/'+val._id, class='card-link') Ver
-                    a(href=val.url, class='card-link') Descargar
+                  div(class='card-body')
+                    a(href=val.url, class='card-link'): i(class='fas fa-download fa-lg', title='Download')
+                    a(href='api/movies/'+val._id, class='btn btn-danger card-link') Ver
+                    a(href='https://youtube.com/results?search_query='+val.name, class='card-link'): i(class='fas fa-film fa-lg', title='Trailer')

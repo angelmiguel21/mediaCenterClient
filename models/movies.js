@@ -30,7 +30,7 @@ const movieSchema = new Schema ({
     type: String,
     minlength: 5,
     maxlength: 100
-  },
+  },  
   created_at: {
     type: Date,
     default: Date.now
