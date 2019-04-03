@@ -19,7 +19,7 @@ router.get('/users', usersCtrl.getUsers);
 /* Movies  ROUTES*/
 router.get('/movies', moviesCtrl.getMovies);
 router.get('/movies/:id', moviesCtrl.getMovie);
-router.post('/movies', isAuth, moviesCtrl.postNewMovie);
+router.post('/movies', moviesCtrl.postNewMovie);
 //router.put('',moviesCtrl.putMovies);
 //router.delete('', moviesCtrl.deleteMovies);
 
