@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
+const recursive = require('recursive-readdir');
 
 const Movie = require('../models/movies');
 const Serie = require('../models/series');
@@ -32,6 +34,17 @@ router.get('/home', function(req,res,next) {
 router.get('/series', function(req,res,next) {
   let title = "Series"
   res.render('series', {message: 'Doit for the series', title})
+});
+
+router.get('/read', function(req,res,next) {
+  let directory = "movies";
+  // let dirBuf = Buffer.from(directory);
+  // let files = fs.readdirSync(directory);
+
+  recursive(directory, function(err, files) {
+    res.send(files);
+  })
+  
 });
 
 /*validar authetication*/
