@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'media')));
+app.use(express.static(path.join(__dirname, 'movies')));
 app.use(session({
   secret: 'mysecretsession',
   resave: false,
