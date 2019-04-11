@@ -36,11 +36,8 @@ router.get('/series', function(req,res,next) {
 });
 
 router.get('/form', function(req,res,next) {
-  res.render('form');
-});
-
-router.post('/newmovie', function(req, res, next) {
-
+  let title = "Forms"
+  res.render('form', {message: 'Forms', title});
 });
 
 /*validar authetication*/

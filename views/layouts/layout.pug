@@ -19,5 +19,10 @@ html
             a(class='nav-link', href='/movies') Movies
           li(class='nav-item')
             // a(class='nav-link', href='/series') Series
+          li(class='nav-item')
+            if login
+              a(class='nav-link', href='/form') Forms
+            else
+              a(class='nav-link', href='/users/signin') Login
 
     block content
