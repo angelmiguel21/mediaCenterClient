@@ -9,9 +9,17 @@ const storage = multer.diskStorage({
   filename: function(req,file,cb) {
     cb(null, file.originalname);
   }
-})
+});
 
-const uploads = multer({storage: storage});
+const uploads = multer({
+  storage: storage
+});
+
+const cpUploads = uploads.fields([
+  {name: 'movie', maxCount: 1},
+  {name: 'subs', maxCount: 1},
+  {name: 'thumbnail', maxCount: 1}
+]);
 
 const usersCtrl = require('../controllers/api');
 const moviesCtrl = require('../controllers/movies');
@@ -31,8 +39,7 @@ router.get('/users', usersCtrl.getUsers);
 /* Movies  ROUTES*/
 router.get('/movies', moviesCtrl.getMovies);
 router.get('/movies/:id', moviesCtrl.getMovie);
-router.post('/movies', moviesCtrl.postNewMovie);
-router.post('/imgmovies', uploads.single('file') , moviesCtrl.postImgMovies);
+router.post('/movies', cpUploads, moviesCtrl.postNewMovie);
 //router.put('',moviesCtrl.putMovies);
 //router.delete('', moviesCtrl.deleteMovies);
 

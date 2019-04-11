@@ -1,26 +1,36 @@
 extends layouts/layout
 
 block content
-  div(class='border rounded  mt-2' id='form-border')
-    form(action='/api/movies', method="post")
-      .form-row
+  div(class='container mt-3' style='min-height: 50em')
+    div(class='border rounded  mt-2' id='form-border')
+      form(action='/api/movies', method="post", enctype='multipart/form-data')
         .col-2
-          h3 Reg Movie:
-        .col
-          input(type='text', class='form-control', Placeholder='Movie name', name='name')
-        .col
-          input(type='text', class='form-control', Placeholder='Movie Route', name='url')
-        .col
-          select(name='genre' class='form-control')
-            option(value='', disabled='disabled', selected='selected') Select genre
-            option(value='acción') Acción
-            option(value='animadas') Animadas
-            option(value='comedia') Comedia
-            option(value='drama') Drama
-            option(value='ficción') Ficción
-        .col
-          input(type='text', class='form-control', Placeholder='subs Route', name='subs')
-        .col
-          input(type='text', class='form-control', Placeholder='img Route', name='thumbnail')
-        .col-1
-          Button(type='submit' class='btn btn-danger btn-block', ) Reg
+            h3 Reg Movie:
+        div(class='form-group row')
+          label(class='col-sm-2 col-form-label') Name
+          .col-sm-10
+            input(type='text', class='form-control', Placeholder='Movie name', name='name')
+        div(class='form-group row')
+          label(class='col-sm-2 col-form-label') Movie
+          div(class='col-sm-10 input-group')
+            input(type='file', class='form-control-file', id='movie', name='movie')
+        div(class='form-group row')
+          label(class='col-sm-2 col-form-label') Genre
+          .col-sm-10
+            select(name='genre' class='form-control')
+              option(value='', disabled='disabled', selected='selected') Select genre
+              option(value='acción') Acción
+              option(value='animadas') Animadas
+              option(value='comedia') Comedia
+              option(value='drama') Drama
+              option(value='ficción') Ficción
+        div(class='form-group row')
+          label(class='col-sm-2 col-form-label') Subs
+          .col-sm-10
+            input(type='file', class='form-control-file', Placeholder='subs Route', name='subs')
+        div(class='form-group row')
+          label(class='col-sm-2 col-form-label') Thumbnail
+          .col-sm-10
+            input(type='file', class='form-control-file', Placeholder='img Route', name='thumbnail')
+          
+            Button(type='submit' class='btn btn-danger btn-block mt-3', ) Save

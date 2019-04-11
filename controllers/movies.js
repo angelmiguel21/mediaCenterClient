@@ -19,15 +19,15 @@ async function getMovie(req, res, next) {
 };
 
 async function postNewMovie(req, res, next) {
-  console.log(req.body);
+  console.log(req.files);
 
   let movie = new Movie();
 
   movie.name = req.body.name;
-  movie.url = req.body.url;
-  movie.thumbnail = req.body.thumbnail;  
+  movie.url = req.files.movie[0].path;
+  movie.thumbnail = req.files.thumbnail[0].path;
   movie.genre = req.body.genre;
-  movie.subs = req.body.subs;
+  movie.subs = req.files.subs[0].path;
 
   await movie.save((err, movieStored) => {
     if(err) res.status(500).send({
@@ -38,34 +38,10 @@ async function postNewMovie(req, res, next) {
     
     //send({message: `Movie: ${movieStored}`});
   });
-
-}
-
-async function postImgMovies(req,res,next) {
-  console.log(req.file);
-  /*let movie = new Movie();
-
-  movie.name = req.body.name;
-  movie.url = req.body.url;
-  movie.thumbnail = req.body.thumbnail;
-  movie.genre = req.body.genre;
-  movie.subs = req.body.subs;
-
-  await movie.save((err, movieStored) => {
-    if (err) res.status(500).send({
-      message: `error al guardar, ${err}`
-    });
-
-    res.status(200).redirect('/movies')
-
-    //send({message: `Movie: ${movieStored}`});
-  });*/
-
 }
 
 module.exports = {
   getMovies,
   getMovie,
   postNewMovie,
-  postImgMovies
 }

@@ -14,12 +14,12 @@ const movieSchema = new Schema ({
     lowercase: true,
     require: true,
     minlength: 5,
-    maxlength: 100
+    maxlength: 1000
   },
   thumbnail: {
     type: String,
     minlength: 8,
-    maxlength: 100
+    maxlength: 1000
   },
   genre: {
     type: String,
@@ -29,7 +29,7 @@ const movieSchema = new Schema ({
   subs:{
     type: String,
     minlength: 5,
-    maxlength: 100
+    maxlength: 1000
   },  
   created_at: {
     type: Date,
