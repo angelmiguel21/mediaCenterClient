@@ -37,7 +37,7 @@ router.post('/signup', passport.authenticate('local.signup', {
 /* GET logout */
 router.get('/logout', (req, res, next) => {
   req.logout()
-  res.redirect('/users/signin')
+  res.redirect('/movies')
 });
 
 /*validar authetication*/
