@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/movies', async (req, res, next) => {
   let title = "Movies"
-  const movies = await Movie.find({}).sort([['created_at', -1]]);
+  const movies = await Movie.find({}).sort([['name', 1]]);
   if (movies.length > 0 ){
     res.render('movies', {movies, title})
   }
