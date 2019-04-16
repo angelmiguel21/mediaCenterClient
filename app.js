@@ -13,6 +13,7 @@ const keys = require('./keys')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
+const dashboardRouter = require('./routes/dashboard');
 
 const app = express();
 require('./dbConnect');
@@ -54,6 +55,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
+app.use('/dashboard', dashboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

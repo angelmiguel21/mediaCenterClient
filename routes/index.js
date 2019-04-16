@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/movies', async (req, res, next) => {
   let title = "Movies"
-  const movies = await Movie.find({}).sort([['name', 1]]);
+  const movies = await Movie.find({}).sort([['created_at', -1]]);
   if (movies.length > 0 ){
     res.render('movies', {movies, title})
   }
@@ -23,11 +23,6 @@ router.get('/movies', async (req, res, next) => {
       title
     })
   }
-});
-
-router.get('/home', function(req,res,next) {
-  let title = "Dashboard";
-  res.render('dashboard', {message: 'dashboard', title})
 });
 
 router.get('/series', function(req,res,next) {

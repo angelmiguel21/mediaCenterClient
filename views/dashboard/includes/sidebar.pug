@@ -1,0 +1,14 @@
+nav#sidebar
+  .sidebar-header
+    h3 Dashboard
+  ul(class='list-unstyled components')
+    li(class='active')
+      a(href='#homeSubmenu', data-toggle='collapse', aria-expanded='false', class='dropdown-toggle') Movies
+      ul(class='collapse lyst-unstyled', id='homeSubmenu')
+        li 
+          a(href='/dashboard/addMovies') Add
+        li
+          a(href='/dashboard/listMovies') List
+    // li
+      a(href='#') test 2
+    
